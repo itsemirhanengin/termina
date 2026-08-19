@@ -110,6 +110,19 @@ final class AppState {
         newTab(project: project)
     }
 
+    /// Applies an edit from the project sheet. Open tabs hold their own copy of
+    /// the project, so they are refreshed too — that is what retitles the
+    /// window and its native tab after a rename.
+    func updateProject(_ project: Project) {
+        guard let index = projects.firstIndex(where: { $0.id == project.id }) else { return }
+        projects[index] = project
+        for tab in tabs where tab.project?.id == project.id {
+            tab.project = project
+            NativeWindowCoordinator.shared.refresh(tab: tab)
+        }
+        persist(selectedProjectID: activeProject?.id)
+    }
+
     func removeProject(_ project: Project) {
         let projectTabs = tabs.filter { $0.project?.id == project.id }
 
@@ -124,6 +137,7 @@ final class AppState {
             )
         }
 
+        ProjectIconStore.discardStoredImage(for: project.icon)
         projects.removeAll { $0.id == project.id }
         for tab in projectTabs {
             NativeWindowCoordinator.shared.close(tabID: tab.id)

@@ -5,14 +5,16 @@ struct ProjectsSidebar: View {
     @Bindable var state: AppState
     let tab: TerminalTab
 
+    @State private var editingProject: Project?
+
     var body: some View {
         List(selection: projectSelection) {
             Section("Projects") {
                 ForEach(state.projects) { project in
-                    Label(project.name, systemImage: "folder")
+                    row(for: project)
                         .tag(project.id)
-                        .help(project.folderPath)
                         .contextMenu {
+                            Button("Edit Project…") { editingProject = project }
                             Button("Reveal in Finder") {
                                 NSWorkspace.shared.activateFileViewerSelecting([project.folderURL])
                             }
@@ -41,7 +43,31 @@ struct ProjectsSidebar: View {
                 .padding(.vertical, 8)
             }
         }
-        .navigationSplitViewColumnWidth(min: 170, ideal: 220, max: 320)
+        .background(SidebarColumnBounds())
+        .sheet(item: $editingProject) { project in
+            ProjectEditorView(project: project) { state.updateProject($0) }
+        }
+    }
+
+    /// The description, when there is one, sits under the name the way
+    /// Finder and Mail stack a secondary line — it must never push the row's
+    /// height around when empty.
+    @ViewBuilder
+    private func row(for project: Project) -> some View {
+        HStack(spacing: 6) {
+            ProjectIconView(icon: project.icon, size: 16)
+            VStack(alignment: .leading, spacing: 1) {
+                Text(project.name)
+                    .lineLimit(1)
+                if !project.notes.isEmpty {
+                    Text(project.notes)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+            }
+        }
+        .help(project.notes.isEmpty ? project.folderPath : "\(project.notes)\n\(project.folderPath)")
     }
 
     private var projectSelection: Binding<Project.ID?> {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02A13D3723FC6572FCF6363E /* SidebarColumnBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5BB718277A09116F42B6C1 /* SidebarColumnBounds.swift */; };
 		05283AC90FE295D40DAC5AFA /* TerminaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239337C81C6C2333D742CA09 /* TerminaApp.swift */; };
 		0C7245A7DFE813DC3FEF37B7 /* TerminalTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F68033669A5170C974D55 /* TerminalTheme.swift */; };
 		0DBF9F2263A9E84F507C125C /* ExtensionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DDE2A1A24FBA0E12C5293 /* ExtensionRegistry.swift */; };
@@ -16,12 +17,14 @@
 		2E17FCCBA850559C2AF6161C /* TerminalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760D714553EEA09C4E6E4E /* TerminalSession.swift */; };
 		30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1855838BD1004D587794C71 /* SplitPaneView.swift */; };
 		39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3981AFCF910387F776B30202 /* SystemInfoExtension.swift */; };
+		3CFD48B7CE18F20EA4877533 /* ProjectIconStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */; };
 		46A6F8968361733516F39801 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */; };
 		53D49775D509F649923A3C79 /* ProjectsSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974359D4E82134F3622EC460 /* ProjectsSidebar.swift */; };
 		56913084EDA0D94F663BE094 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591E791DE61BAA1927D2FA66 /* TabBarView.swift */; };
 		57C5FE1CD5F62735FEA65297 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = FD064C2BA52A33EA48E45758 /* SwiftTerm */; };
 		6D52DE6A4F87AF48A5CB7A54 /* WorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */; };
 		6F2EFCB1FFC65ECFB5F603E6 /* PaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FADB1A21EE3366AAA469F /* PaneNode.swift */; };
+		7AE22B567D933141768B60AB /* ProjectIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0782CD826E9B970404EB370 /* ProjectIconView.swift */; };
 		83A86B7EA0AF3E8E01CE9FF9 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */; };
 		8E38489BE6A45B3D98AF176E /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721171F428F62115DD858277 /* ExtensionManager.swift */; };
 		947B157369A32F0BEE89CED6 /* TerminaCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */; };
@@ -37,6 +40,7 @@
 		D4AE56BD3A233DE367D44533 /* ThemesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */; };
 		D66D1D451A1B788C21F09BF4 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A9AFFB2B2DA2432A972DC /* Brand.swift */; };
 		D6CF9072F231B47C3FA7D42F /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293606830430C6A07349C8E /* ProjectStore.swift */; };
+		F0914EF56D7553DE6CDB5AE9 /* ProjectEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4D7A85F4B0CCF5242F9722 /* ProjectEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +48,12 @@
 		1293606830430C6A07349C8E /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
 		190C113119B316FC17953F04 /* TerminalTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTab.swift; sourceTree = "<group>"; };
 		190C5378BB7C123A8EECA9CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D4D7A85F4B0CCF5242F9722 /* ProjectEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorView.swift; sourceTree = "<group>"; };
 		235BDD38A53D5A77E591D73B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		239337C81C6C2333D742CA09 /* TerminaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaApp.swift; sourceTree = "<group>"; };
 		23DCCF6C855F2AC84ED9B45A /* PaneTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneTreeView.swift; sourceTree = "<group>"; };
 		3981AFCF910387F776B30202 /* SystemInfoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoExtension.swift; sourceTree = "<group>"; };
+		4E5BB718277A09116F42B6C1 /* SidebarColumnBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarColumnBounds.swift; sourceTree = "<group>"; };
 		57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesExtension.swift; sourceTree = "<group>"; };
 		591E791DE61BAA1927D2FA66 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		5BC9D5605D093350DDE59234 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 		8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
 		8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalHostView.swift; sourceTree = "<group>"; };
 		974359D4E82134F3622EC460 /* ProjectsSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsSidebar.swift; sourceTree = "<group>"; };
+		A0782CD826E9B970404EB370 /* ProjectIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectIconView.swift; sourceTree = "<group>"; };
 		A1855838BD1004D587794C71 /* SplitPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitPaneView.swift; sourceTree = "<group>"; };
 		A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
 		A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
@@ -65,6 +72,7 @@
 		B90E986792D540F0712B6529 /* ExtensionHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHost.swift; sourceTree = "<group>"; };
 		BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExplorerExtension.swift; sourceTree = "<group>"; };
 		C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaCommands.swift; sourceTree = "<group>"; };
+		CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectIconStore.swift; sourceTree = "<group>"; };
 		E0A528F5517DC1876708904A /* NativeWindowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeWindowCoordinator.swift; sourceTree = "<group>"; };
 		E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceView.swift; sourceTree = "<group>"; };
 		F77FADB1A21EE3366AAA469F /* PaneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneNode.swift; sourceTree = "<group>"; };
@@ -97,6 +105,7 @@
 			children = (
 				F77FADB1A21EE3366AAA469F /* PaneNode.swift */,
 				0EE464C742682B995617E169 /* Project.swift */,
+				CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */,
 				1293606830430C6A07349C8E /* ProjectStore.swift */,
 				FD760D714553EEA09C4E6E4E /* TerminalSession.swift */,
 				190C113119B316FC17953F04 /* TerminalTab.swift */,
@@ -133,6 +142,7 @@
 				A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */,
 				E0A528F5517DC1876708904A /* NativeWindowCoordinator.swift */,
 				235BDD38A53D5A77E591D73B /* SettingsView.swift */,
+				4E5BB718277A09116F42B6C1 /* SidebarColumnBounds.swift */,
 				239337C81C6C2333D742CA09 /* TerminaApp.swift */,
 				C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */,
 			);
@@ -167,6 +177,8 @@
 			children = (
 				8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */,
 				23DCCF6C855F2AC84ED9B45A /* PaneTreeView.swift */,
+				1D4D7A85F4B0CCF5242F9722 /* ProjectEditorView.swift */,
+				A0782CD826E9B970404EB370 /* ProjectIconView.swift */,
 				974359D4E82134F3622EC460 /* ProjectsSidebar.swift */,
 				A1855838BD1004D587794C71 /* SplitPaneView.swift */,
 				591E791DE61BAA1927D2FA66 /* TabBarView.swift */,
@@ -273,9 +285,13 @@
 				6F2EFCB1FFC65ECFB5F603E6 /* PaneNode.swift in Sources */,
 				A75D0B5D948823F213BD0072 /* PaneTreeView.swift in Sources */,
 				1B76D485FE4CB67A1E98B07A /* Project.swift in Sources */,
+				F0914EF56D7553DE6CDB5AE9 /* ProjectEditorView.swift in Sources */,
+				3CFD48B7CE18F20EA4877533 /* ProjectIconStore.swift in Sources */,
+				7AE22B567D933141768B60AB /* ProjectIconView.swift in Sources */,
 				D6CF9072F231B47C3FA7D42F /* ProjectStore.swift in Sources */,
 				53D49775D509F649923A3C79 /* ProjectsSidebar.swift in Sources */,
 				1CD436FDB5A19407BC6A14E0 /* SettingsView.swift in Sources */,
+				02A13D3723FC6572FCF6363E /* SidebarColumnBounds.swift in Sources */,
 				30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */,
 				39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */,
 				56913084EDA0D94F663BE094 /* TabBarView.swift in Sources */,
