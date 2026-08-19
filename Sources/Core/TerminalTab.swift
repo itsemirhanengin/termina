@@ -16,6 +16,9 @@ final class TerminalTab: Identifiable {
     var focusedSessionID: UUID?
     var selectedPanelID: String?
     var inspectorPresented = false
+    /// User-chosen tab name. Wins over the shell title; clearing it hands the
+    /// title back to the shell.
+    var customTitle: String?
 
     init(project: Project?, root: PaneNode) {
         self.project = project
@@ -44,13 +47,22 @@ final class TerminalTab: Identifiable {
     }
 
     /// Label macOS puts on the native tab.
-    var windowTitle: String { shellTitle ?? name }
+    var windowTitle: String { customTitle ?? shellTitle ?? name }
 
     /// Second line in the toolbar; empty when it would just repeat the title.
     var windowSubtitle: String {
         var parts: [String] = []
-        if shellTitle != nil { parts.append(name) }
+        if windowTitle != name { parts.append(name) }
         if sessions.count > 1 { parts.append("\(sessions.count) panes") }
         return parts.joined(separator: " · ")
+    }
+
+    /// Renames the tab. Whitespace-only input clears the override so the tab
+    /// follows the shell again, which is also how the rename sheet's empty
+    /// field is meant to read.
+    func rename(to newTitle: String) {
+        let trimmed = newTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        customTitle = trimmed.isEmpty ? nil : trimmed
+        NativeWindowCoordinator.shared.refresh(tab: self)
     }
 }

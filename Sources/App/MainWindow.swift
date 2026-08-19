@@ -15,7 +15,7 @@ struct MainWindow: View {
         .inspector(isPresented: $tab.inspectorPresented) {
             InspectorView(state: state, tab: tab)
         }
-        .navigationTitle(tab.windowTitle)
+        .navigationTitle(titleBinding)
         .navigationSubtitle(tab.windowSubtitle)
         .toolbarRole(.editor)
         .toolbar {
@@ -23,6 +23,13 @@ struct MainWindow: View {
         }
         .background(WindowConfigurator(state: state, tab: tab))
         .frame(minWidth: 820, minHeight: 500)
+    }
+
+    /// A `Binding` title makes macOS draw the window title as an editable
+    /// field, which is the platform's own rename affordance — AppKit offers
+    /// none for the tab itself.
+    private var titleBinding: Binding<String> {
+        Binding(get: { tab.windowTitle }, set: { tab.rename(to: $0) })
     }
 }
 

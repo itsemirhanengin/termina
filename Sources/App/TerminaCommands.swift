@@ -7,6 +7,8 @@ struct TerminaCommands: Commands {
         CommandGroup(replacing: .newItem) {
             Button("New Tab") { state.newTab() }
                 .keyboardShortcut("t", modifiers: .command)
+            Button("Rename Tab…") { state.promptRenameActiveTab() }
+                .keyboardShortcut("r", modifiers: [.command, .shift])
         }
 
         // Keep macOS semantics: ⌘W closes the selected native window tab.

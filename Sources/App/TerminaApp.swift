@@ -1,22 +1,40 @@
+import AppKit
 import SwiftUI
 
 @main
 struct TerminaApp: App {
-    @State private var state = AppState.shared
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var delegate
 
     var body: some Scene {
-        WindowGroup {
-            MainWindow(state: state, tab: state.initialTab)
-        }
-        .windowStyle(.automatic)
-        .windowToolbarStyle(.unified(showsTitle: true))
-        .defaultSize(width: 1180, height: 760)
-        .commands {
-            TerminaCommands()
-        }
-
+        // No WindowGroup: every terminal window is created by
+        // `NativeWindowCoordinator` so they are all `TerminaWindow`s and all
+        // behave identically. A SwiftUI-owned window would answer the tab
+        // bar's "+" itself and clone the scene instead of opening a new tab.
         Settings {
             SettingsView()
         }
+        .commands {
+            TerminaCommands()
+        }
+    }
+}
+
+/// Opens the first window and keeps the app alive the way a terminal should.
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    @MainActor
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        AppState.shared.openInitialWindow()
+    }
+
+    @MainActor
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows: Bool) -> Bool {
+        if !hasVisibleWindows {
+            AppState.shared.openInitialWindow()
+        }
+        return true
+    }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        true
     }
 }

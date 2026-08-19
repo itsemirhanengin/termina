@@ -137,8 +137,46 @@ final class AppState {
 
     // MARK: Native tabs
 
+    /// Called by the app delegate at launch and on dock re-open.
+    func openInitialWindow() {
+        if let tab = activeTab, NSApp.windows.contains(where: { $0.isVisible }) {
+            NativeWindowCoordinator.shared.activate(tabID: tab.id)
+            return
+        }
+        let tab = activeTab ?? {
+            let fresh = makeTab(project: projects.first)
+            tabs.append(fresh)
+            activeTabID = fresh.id
+            return fresh
+        }()
+        NativeWindowCoordinator.shared.open(tab: tab, state: self, groupedWith: nil)
+    }
+
     func newTab() {
         newTab(project: activeProject)
+    }
+
+    /// Native tabs have no rename UI of their own, so this is the keyboard
+    /// path to the same edit the toolbar title offers.
+    func promptRenameActiveTab() {
+        guard let tab = activeTab, let window = NSApp.keyWindow else { return }
+
+        let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 260, height: 24))
+        field.stringValue = tab.customTitle ?? ""
+        field.placeholderString = tab.shellTitle ?? tab.name
+
+        let alert = NSAlert()
+        alert.messageText = "Rename Tab"
+        alert.informativeText = "Leave empty to follow the shell's title."
+        alert.accessoryView = field
+        alert.addButton(withTitle: "Rename")
+        alert.addButton(withTitle: "Cancel")
+        alert.window.initialFirstResponder = field
+
+        alert.beginSheetModal(for: window) { response in
+            guard response == .alertFirstButtonReturn else { return }
+            MainActor.assumeIsolated { tab.rename(to: field.stringValue) }
+        }
     }
 
     private func newTab(project: Project?) {
