@@ -1,29 +1,13 @@
 import SwiftUI
 
-/// The right-hand inspector: hosts every panel registered by extensions,
-/// with a segmented switcher when there is more than one.
+/// The right-hand inspector hosts the panel chosen from the window toolbar.
+/// Modules remain toolbar actions instead of becoming a second row of tabs.
 struct InspectorView: View {
     @Bindable var state: AppState
     @Bindable var tab: TerminalTab
 
     var body: some View {
-        let panels = state.extensions.panels
-        VStack(spacing: 0) {
-            if panels.count > 1 {
-                Picker("Panel", selection: $tab.selectedPanelID) {
-                    ForEach(panels) { panel in
-                        Image(systemName: panel.systemImage)
-                            .help(panel.title)
-                            .tag(Optional(panel.id))
-                    }
-                }
-                .pickerStyle(.segmented)
-                .labelsHidden()
-                .padding(.horizontal, 12)
-                .padding(.vertical, 8)
-                Divider()
-            }
-
+        Group {
             if let panel = selectedPanel {
                 panel.makeView(state.host)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

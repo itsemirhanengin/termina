@@ -7,6 +7,15 @@ struct NativeTerminalToolbar: ToolbarContent {
     let tab: TerminalTab
 
     var body: some ToolbarContent {
+        ToolbarItem(placement: .navigation) {
+            Button {
+                state.toggleSidebar()
+            } label: {
+                Label("Toggle Sidebar", systemImage: "sidebar.left")
+            }
+            .help("Toggle Sidebar (⌃⌘S)")
+        }
+
         ToolbarItemGroup(placement: .primaryAction) {
             sessionActions
         }

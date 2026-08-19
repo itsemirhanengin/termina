@@ -87,7 +87,7 @@ private struct NativeFileOutlineView: NSViewRepresentable {
         outlineView.delegate = context.coordinator
         outlineView.backgroundColor = .clear
         outlineView.usesAlternatingRowBackgroundColors = false
-        outlineView.selectionHighlightStyle = .sourceList
+        outlineView.style = .sourceList
         outlineView.indentationPerLevel = 14
         outlineView.intercellSpacing = NSSize(width: 0, height: 1)
         outlineView.rowHeight = 21

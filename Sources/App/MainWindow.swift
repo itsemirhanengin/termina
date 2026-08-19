@@ -8,6 +8,7 @@ struct MainWindow: View {
     var body: some View {
         NavigationSplitView(columnVisibility: $state.sidebarVisibility) {
             ProjectsSidebar(state: state, tab: tab)
+                .toolbar(removing: .sidebarToggle)
         } detail: {
             WorkspaceView(tab: tab, state: state)
         }

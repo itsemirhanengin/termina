@@ -37,6 +37,8 @@ struct TerminaCommands: Commands {
         }
 
         CommandGroup(after: .toolbar) {
+            Button("Toggle Sidebar") { state.toggleSidebar() }
+                .keyboardShortcut("s", modifiers: [.command, .control])
             Button("Toggle Inspector") { state.toggleInspector() }
                 .keyboardShortcut("i", modifiers: [.command, .option])
             Divider()

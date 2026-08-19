@@ -249,6 +249,10 @@ final class AppState {
 
     // MARK: Inspector & extensions
 
+    func toggleSidebar() {
+        sidebarVisibility = sidebarVisibility == .detailOnly ? .all : .detailOnly
+    }
+
     func toggleInspector() {
         activeTab?.inspectorPresented.toggle()
     }

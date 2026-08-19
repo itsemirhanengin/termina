@@ -30,6 +30,7 @@
 		AE529695049B169DD06D11AD /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BDDC2B3F3E43D125DF1E0 /* ObservationToken.swift */; };
 		B446DB9536AE627A797B8A16 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9D5605D093350DDE59234 /* AppState.swift */; };
 		B5265D8B387FBF43F8E8C958 /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */; };
+		BBD1BCFA4C2AE004F912B7AC /* FileExplorerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */; };
 		C36DF0A6836DA3A84227D8EB /* NativeWindowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A528F5517DC1876708904A /* NativeWindowCoordinator.swift */; };
 		C8D5FF2C104C3B244917A774 /* TerminalHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */; };
 		D4AE56BD3A233DE367D44533 /* ThemesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */; };
@@ -58,6 +59,7 @@
 		A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
 		A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		B90E986792D540F0712B6529 /* ExtensionHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHost.swift; sourceTree = "<group>"; };
+		BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExplorerExtension.swift; sourceTree = "<group>"; };
 		C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaCommands.swift; sourceTree = "<group>"; };
 		E0A528F5517DC1876708904A /* NativeWindowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeWindowCoordinator.swift; sourceTree = "<group>"; };
 		E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		632C1A4D21DDA84E491AF3C6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */,
 				3981AFCF910387F776B30202 /* SystemInfoExtension.swift */,
 				57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */,
 			);
@@ -243,6 +246,7 @@
 				A01FBAC555A6783E2298192C /* ExtensionHost.swift in Sources */,
 				8E38489BE6A45B3D98AF176E /* ExtensionManager.swift in Sources */,
 				0DBF9F2263A9E84F507C125C /* ExtensionRegistry.swift in Sources */,
+				BBD1BCFA4C2AE004F912B7AC /* FileExplorerExtension.swift in Sources */,
 				B5265D8B387FBF43F8E8C958 /* InspectorView.swift in Sources */,
 				83A86B7EA0AF3E8E01CE9FF9 /* MainWindow.swift in Sources */,
 				C36DF0A6836DA3A84227D8EB /* NativeWindowCoordinator.swift in Sources */,

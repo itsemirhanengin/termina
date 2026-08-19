@@ -111,6 +111,7 @@ final class NativeWindowCoordinator {
         window.isMovableByWindowBackground = false
         update(window: window, for: tab)
     }
+
 }
 
 @MainActor
