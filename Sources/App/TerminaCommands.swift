@@ -11,11 +11,12 @@ struct TerminaCommands: Commands {
                 .keyboardShortcut("r", modifiers: [.command, .shift])
         }
 
-        // Keep macOS semantics: ⌘W closes the selected native window tab.
+        // Closing widens outwards: ⌘W takes the focused pane and only reaches
+        // the tab once that pane was the last one in it.
         CommandGroup(replacing: .saveItem) {
-            Button("Close Tab") { state.closeCurrentTab() }
-                .keyboardShortcut("w", modifiers: .command)
             Button("Close Pane") { state.closeFocusedPane() }
+                .keyboardShortcut("w", modifiers: .command)
+            Button("Close Tab") { state.closeCurrentTab() }
                 .keyboardShortcut("w", modifiers: [.command, .option])
             Button("Close Window") {
                 guard let keyWindow = NSApp.keyWindow else { return }

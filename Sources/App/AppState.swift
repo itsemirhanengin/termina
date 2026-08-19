@@ -273,16 +273,22 @@ final class AppState {
         guard let tab = tabs.first(where: { $0.root.contains(sessionID: session.id) }) else {
             return
         }
+        let closedIndex = tab.sessions.firstIndex { $0.id == session.id } ?? 0
 
-        if let newRoot = tab.root.removing(sessionID: session.id) {
-            tab.root = newRoot
-            if tab.focusedSessionID == session.id {
-                tab.focusedSessionID = newRoot.sessions.first?.id
-            }
-            focusActiveSession()
-        } else {
+        guard let newRoot = tab.root.removing(sessionID: session.id) else {
+            // That was the last pane, so the tab goes with it.
             NativeWindowCoordinator.shared.close(tabID: tab.id)
+            return
         }
+
+        tab.root = newRoot
+        if tab.focusedSessionID == session.id {
+            // Focus whatever moved into the closed pane's place, or the pane
+            // before it when the closed one was last.
+            let remaining = newRoot.sessions
+            tab.focusedSessionID = remaining[min(closedIndex, remaining.count - 1)].id
+        }
+        focusActiveSession()
     }
 
     // MARK: Inspector & extensions

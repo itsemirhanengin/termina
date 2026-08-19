@@ -34,7 +34,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
+    /// Terminal.app semantics: closing the last window leaves the app running,
+    /// ready to open a new one from the dock or ⌘N.
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        true
+        false
     }
 }
