@@ -1,6 +1,6 @@
 name: Termina
 options:
-  bundleIdPrefix: co.bugece
+  bundleIdPrefix: com.itsemirhanengin
   deploymentTarget:
     macOS: "15.0"
   createIntermediateGroups: true
@@ -21,7 +21,7 @@ targets:
     settings:
       base:
         PRODUCT_NAME: Termina
-        PRODUCT_BUNDLE_IDENTIFIER: co.bugece.termina
+        PRODUCT_BUNDLE_IDENTIFIER: com.itsemirhanengin.termina
         SWIFT_VERSION: "5.0"
         MACOSX_DEPLOYMENT_TARGET: "15.0"
         GENERATE_INFOPLIST_FILE: YES

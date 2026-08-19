@@ -7,12 +7,17 @@ import SwiftUI
 final class AppState {
     static let shared = AppState()
 
-    // MARK: Projects & native window tabs
+    // MARK: Projects & workspaces
 
     private(set) var projects: [Project] = []
-    private(set) var tabs: [TerminalTab] = []
-    private(set) var activeTabID: TerminalTab.ID?
-    private(set) var initialTab: TerminalTab!
+    /// `nil` means the ad-hoc workspace rooted at the home folder, which is
+    /// what the app shows before any project has been added.
+    private(set) var activeProjectID: Project.ID?
+    /// One workspace per project, created the first time that project is
+    /// opened and kept for the rest of the session — that is what makes its
+    /// tabs and inspector still be there when you come back to it.
+    private var workspaces: [Workspace] = []
+
     var sidebarVisibility: NavigationSplitViewVisibility = .all
 
     // MARK: Extensions
@@ -50,24 +55,27 @@ final class AppState {
         projects = snapshot.projects.filter {
             FileManager.default.fileExists(atPath: $0.folderPath)
         }
+        activeProjectID = projects.first { $0.id == snapshot.selectedProjectID }?.id
+            ?? projects.first?.id
 
-        let project = projects.first { $0.id == snapshot.selectedProjectID } ?? projects.first
-        let tab = makeTab(project: project)
-        initialTab = tab
-        tabs = [tab]
-        activeTabID = tab.id
         installFocusMonitor()
     }
 
     // MARK: Derived state
 
-    var activeTab: TerminalTab? {
-        tabs.first { $0.id == activeTabID } ?? tabs.first
+    var activeProject: Project? {
+        projects.first { $0.id == activeProjectID }
     }
 
-    var activeProject: Project? { activeTab?.project }
+    /// Creates the workspace on first use so a project costs nothing until it
+    /// is opened.
+    var activeWorkspace: Workspace {
+        workspace(for: activeProjectID)
+    }
 
-    var focusedSession: TerminalSession? { activeTab?.focusedSession }
+    var activeTab: TerminalTab? { activeWorkspace.activeTab }
+
+    var focusedSession: TerminalSession? { activeWorkspace.focusedSession }
 
     var activeTheme: TerminalTheme {
         extensions.themes.first { $0.id == activeThemeID }
@@ -85,157 +93,150 @@ final class AppState {
             )
     }
 
+    var windowTitle: String { activeProject?.name ?? "Termina" }
+
+    var windowSubtitle: String {
+        guard let tab = activeTab else { return "" }
+        var parts = [tab.title]
+        if tab.sessions.count > 1 { parts.append("\(tab.sessions.count) panes") }
+        return parts.joined(separator: " · ")
+    }
+
+    // MARK: Workspaces
+
+    private func workspace(for projectID: Project.ID?) -> Workspace {
+        if let existing = workspaces.first(where: { $0.projectID == projectID }) {
+            return existing
+        }
+        let folder = projects.first { $0.id == projectID }?.folderURL
+            ?? FileManager.default.homeDirectoryForCurrentUser
+        let workspace = Workspace(projectID: projectID, folderURL: folder)
+        workspace.selectedPanelID = extensions.panels.first?.id
+        workspaces.append(workspace)
+        // A workspace is never shown empty on first open.
+        addTab(to: workspace)
+        return workspace
+    }
+
+    func selectProject(_ projectID: Project.ID?) {
+        guard projectID != activeProjectID else { return }
+        activeProjectID = projectID
+        _ = activeWorkspace
+        persist()
+        focusActiveSession()
+    }
+
     // MARK: Project management
 
     func addProject(folderURL: URL) {
         if let existing = projects.first(where: { $0.folderPath == folderURL.path }) {
-            openProject(existing.id)
+            selectProject(existing.id)
             return
         }
 
         let project = Project(folderURL: folderURL)
         projects.append(project)
-        persist(selectedProjectID: project.id)
-        newTab(project: project)
+        activeProjectID = project.id
+        _ = activeWorkspace
+        persist()
+        focusActiveSession()
     }
 
-    func openProject(_ projectID: Project.ID) {
-        guard let project = projects.first(where: { $0.id == projectID }) else { return }
-
-        if let existing = tabs.first(where: { $0.project?.id == projectID }) {
-            NativeWindowCoordinator.shared.activate(tabID: existing.id)
-            return
-        }
-
-        newTab(project: project)
-    }
-
-    /// Applies an edit from the project sheet. Open tabs hold their own copy of
-    /// the project, so they are refreshed too — that is what retitles the
-    /// window and its native tab after a rename.
+    /// Applies an edit from the project sheet.
     func updateProject(_ project: Project) {
         guard let index = projects.firstIndex(where: { $0.id == project.id }) else { return }
         projects[index] = project
-        for tab in tabs where tab.project?.id == project.id {
-            tab.project = project
-            NativeWindowCoordinator.shared.refresh(tab: tab)
-        }
-        persist(selectedProjectID: activeProject?.id)
+        persist()
     }
 
     func removeProject(_ project: Project) {
-        let projectTabs = tabs.filter { $0.project?.id == project.id }
-
-        if projectTabs.count == tabs.count {
-            let fallback = makeTab(project: nil)
-            tabs.append(fallback)
-            activeTabID = fallback.id
-            NativeWindowCoordinator.shared.open(
-                tab: fallback,
-                state: self,
-                groupedWith: NSApp.keyWindow
-            )
+        // Take the workspace down with the project: its shells have no home left.
+        if let workspace = workspaces.first(where: { $0.projectID == project.id }) {
+            for tab in workspace.tabs {
+                for session in tab.sessions { session.terminate() }
+            }
+            workspaces.removeAll { $0.projectID == project.id }
         }
 
         ProjectIconStore.discardStoredImage(for: project.icon)
         projects.removeAll { $0.id == project.id }
-        for tab in projectTabs {
-            NativeWindowCoordinator.shared.close(tabID: tab.id)
+
+        if activeProjectID == project.id {
+            activeProjectID = projects.first?.id
+            _ = activeWorkspace
         }
-        persist(selectedProjectID: activeProject?.id)
+        persist()
     }
 
-    private func persist(selectedProjectID: Project.ID?) {
-        store.save(.init(projects: projects, selectedProjectID: selectedProjectID))
+    private func persist() {
+        store.save(.init(projects: projects, selectedProjectID: activeProjectID))
     }
 
-    // MARK: Native tabs
-
-    /// Called by the app delegate at launch and on dock re-open.
-    func openInitialWindow() {
-        if let tab = activeTab, NSApp.windows.contains(where: { $0.isVisible }) {
-            NativeWindowCoordinator.shared.activate(tabID: tab.id)
-            return
-        }
-        let tab = activeTab ?? {
-            let fresh = makeTab(project: projects.first)
-            tabs.append(fresh)
-            activeTabID = fresh.id
-            return fresh
-        }()
-        NativeWindowCoordinator.shared.open(tab: tab, state: self, groupedWith: nil)
-    }
+    // MARK: Tabs
 
     func newTab() {
-        newTab(project: activeProject)
-    }
-
-    /// Native tabs have no rename UI of their own, so this is the keyboard
-    /// path to the same edit the toolbar title offers.
-    func promptRenameActiveTab() {
-        guard let tab = activeTab, let window = NSApp.keyWindow else { return }
-
-        let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 260, height: 24))
-        field.stringValue = tab.customTitle ?? ""
-        field.placeholderString = tab.shellTitle ?? tab.name
-
-        let alert = NSAlert()
-        alert.messageText = "Rename Tab"
-        alert.informativeText = "Leave empty to follow the shell's title."
-        alert.accessoryView = field
-        alert.addButton(withTitle: "Rename")
-        alert.addButton(withTitle: "Cancel")
-        alert.window.initialFirstResponder = field
-
-        alert.beginSheetModal(for: window) { response in
-            guard response == .alertFirstButtonReturn else { return }
-            MainActor.assumeIsolated { tab.rename(to: field.stringValue) }
-        }
-    }
-
-    private func newTab(project: Project?) {
-        let tab = makeTab(project: project)
-        tabs.append(tab)
-        activeTabID = tab.id
-        NativeWindowCoordinator.shared.open(
-            tab: tab,
-            state: self,
-            groupedWith: NSApp.keyWindow
-        )
-        persist(selectedProjectID: project?.id)
-    }
-
-    func closeCurrentTab() {
-        guard let tab = activeTab else { return }
-        NativeWindowCoordinator.shared.close(tabID: tab.id)
-    }
-
-    func selectTab(at index: Int) {
-        NativeWindowCoordinator.shared.selectTab(at: index)
-    }
-
-    func windowDidBecomeKey(tabID: TerminalTab.ID) {
-        guard tabs.contains(where: { $0.id == tabID }) else { return }
-        activeTabID = tabID
-        persist(selectedProjectID: activeProject?.id)
+        let workspace = activeWorkspace
+        addTab(to: workspace)
         focusActiveSession()
     }
 
-    func windowWillClose(tabID: TerminalTab.ID) {
-        guard let tab = tabs.first(where: { $0.id == tabID }) else { return }
+    @discardableResult
+    private func addTab(to workspace: Workspace) -> TerminalTab {
+        let session = makeSession(folder: workspace.folderURL)
+        let tab = TerminalTab(folderURL: workspace.folderURL, root: .leaf(session))
+        workspace.tabs.append(tab)
+        workspace.activeTabID = tab.id
+        return tab
+    }
+
+    func selectTab(_ tabID: TerminalTab.ID) {
+        guard activeWorkspace.activeTabID != tabID else { return }
+        activeWorkspace.activeTabID = tabID
+        focusActiveSession()
+    }
+
+    func selectTab(at index: Int) {
+        let workspace = activeWorkspace
+        guard workspace.tabs.indices.contains(index) else { return }
+        selectTab(workspace.tabs[index].id)
+    }
+
+    func moveTab(fromID: TerminalTab.ID, toIndex: Int) {
+        let workspace = activeWorkspace
+        guard let from = workspace.index(of: fromID) else { return }
+        let destination = max(0, min(toIndex, workspace.tabs.count - 1))
+        guard from != destination else { return }
+        let tab = workspace.tabs.remove(at: from)
+        workspace.tabs.insert(tab, at: destination)
+    }
+
+    /// Closing a tab kills its shells; the tab itself goes away as the last
+    /// session reports back, so the two paths stay in one place.
+    func closeTab(_ tabID: TerminalTab.ID) {
+        guard let tab = activeWorkspace.tabs.first(where: { $0.id == tabID }) else { return }
         for session in tab.sessions { session.terminate() }
-        tabs.removeAll { $0.id == tabID }
-        if activeTabID == tabID {
-            activeTabID = tabs.first?.id
+    }
+
+    func closeActiveTab() {
+        guard let tab = activeWorkspace.activeTab else { return }
+        closeTab(tab.id)
+    }
+
+    func closeOtherTabs(than tabID: TerminalTab.ID) {
+        for tab in activeWorkspace.tabs where tab.id != tabID {
+            closeTab(tab.id)
         }
     }
 
-    private func makeTab(project: Project?) -> TerminalTab {
-        let folder = project?.folderURL ?? FileManager.default.homeDirectoryForCurrentUser
-        let session = makeSession(folder: folder)
-        let tab = TerminalTab(project: project, root: .leaf(session))
-        tab.selectedPanelID = extensions.panels.first?.id
-        return tab
+    private func removeTab(_ tab: TerminalTab, from workspace: Workspace) {
+        guard let index = workspace.index(of: tab.id) else { return }
+        workspace.tabs.remove(at: index)
+        if workspace.activeTabID == tab.id {
+            // Land on the neighbour that slid into its place.
+            let next = min(index, workspace.tabs.count - 1)
+            workspace.activeTabID = next >= 0 ? workspace.tabs[next].id : nil
+        }
+        focusActiveSession()
     }
 
     // MARK: Panes
@@ -283,22 +284,24 @@ final class AppState {
         return session
     }
 
+    /// A shell exited — by ⌘W, by `exit`, or because its tab was closed.
+    /// Sessions can belong to any workspace, not just the visible one.
     private func removeSessionFromTree(_ session: TerminalSession) {
-        guard let tab = tabs.first(where: { $0.root.contains(sessionID: session.id) }) else {
-            return
-        }
+        guard let workspace = workspaces.first(where: { workspace in
+            workspace.tabs.contains { $0.root.contains(sessionID: session.id) }
+        }),
+        let tab = workspace.tabs.first(where: { $0.root.contains(sessionID: session.id) })
+        else { return }
+
         let closedIndex = tab.sessions.firstIndex { $0.id == session.id } ?? 0
 
         guard let newRoot = tab.root.removing(sessionID: session.id) else {
-            // That was the last pane, so the tab goes with it.
-            NativeWindowCoordinator.shared.close(tabID: tab.id)
+            removeTab(tab, from: workspace)
             return
         }
 
         tab.root = newRoot
         if tab.focusedSessionID == session.id {
-            // Focus whatever moved into the closed pane's place, or the pane
-            // before it when the closed one was last.
             let remaining = newRoot.sessions
             tab.focusedSessionID = remaining[min(closedIndex, remaining.count - 1)].id
         }
@@ -312,21 +315,23 @@ final class AppState {
     }
 
     func toggleInspector() {
-        activeTab?.inspectorPresented.toggle()
+        activeWorkspace.inspectorPresented.toggle()
     }
 
     func showPanel(id: String) {
-        activeTab?.selectedPanelID = id
-        activeTab?.inspectorPresented = true
+        activeWorkspace.selectedPanelID = id
+        activeWorkspace.inspectorPresented = true
     }
 
     private func applyAppearanceToAllSessions() {
         let theme = activeTheme
         let font = NSFont.monospacedSystemFont(ofSize: fontSize, weight: .regular)
-        for tab in tabs {
-            for session in tab.sessions {
-                theme.apply(to: session.terminalView)
-                session.terminalView.font = font
+        for workspace in workspaces {
+            for tab in workspace.tabs {
+                for session in tab.sessions {
+                    theme.apply(to: session.terminalView)
+                    session.terminalView.font = font
+                }
             }
         }
     }

@@ -2,7 +2,7 @@ import AppKit
 import SwiftUI
 
 struct FileExplorerExtension: AppExtension {
-    static let id = "co.bugece.termina.file-explorer"
+    static let id = "com.itsemirhanengin.termina.file-explorer"
     static let name = "File Explorer"
 
     func activate(_ context: ExtensionContext) {

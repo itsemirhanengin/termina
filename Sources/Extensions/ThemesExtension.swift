@@ -3,7 +3,7 @@ import Foundation
 /// Ships the built-in color palettes. Add a theme here (or write your own
 /// extension that calls `registerTheme`) and it appears in Settings.
 struct ThemesExtension: AppExtension {
-    static let id = "co.bugece.termina.themes"
+    static let id = "com.itsemirhanengin.termina.themes"
     static let name = "Built-in Themes"
 
     func activate(_ context: ExtensionContext) {

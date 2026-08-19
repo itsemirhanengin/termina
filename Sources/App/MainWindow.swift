@@ -3,56 +3,82 @@ import SwiftUI
 
 struct MainWindow: View {
     @Bindable var state: AppState
-    @Bindable var tab: TerminalTab
 
     var body: some View {
+        @Bindable var workspace = state.activeWorkspace
+
         NavigationSplitView(columnVisibility: $state.sidebarVisibility) {
-            ProjectsSidebar(state: state, tab: tab)
+            ProjectsSidebar(state: state)
                 .toolbar(removing: .sidebarToggle)
         } detail: {
-            WorkspaceView(tab: tab, state: state)
+            VStack(spacing: 0) {
+                // With no tabs there is nothing to strip — showing an empty
+                // bar with a lone "+" floating in it looks like a glitch.
+                if !workspace.tabs.isEmpty {
+                    TabStripView(state: state, workspace: workspace)
+                }
+                detail(for: workspace)
+            }
+            // Switching projects replaces the whole tab set, so the detail
+            // side is rebuilt rather than diffed against another project's.
+            .id(workspace.id)
         }
-        .inspector(isPresented: $tab.inspectorPresented) {
-            InspectorView(state: state, tab: tab)
+        .inspector(isPresented: $workspace.inspectorPresented) {
+            InspectorView(state: state, workspace: workspace)
         }
-        .navigationTitle(titleBinding)
-        .navigationSubtitle(tab.windowSubtitle)
+        .navigationTitle(state.windowTitle)
+        .navigationSubtitle(state.windowSubtitle)
         .toolbarRole(.editor)
         .toolbar {
-            NativeTerminalToolbar(state: state, tab: tab)
+            NativeTerminalToolbar(state: state, workspace: workspace)
         }
-        .background(WindowConfigurator(state: state, tab: tab))
+        .background(TitleSynchronizer(title: state.windowTitle, subtitle: state.windowSubtitle))
         .tint(Brand.primary)
         .frame(minWidth: 820, minHeight: 500)
     }
 
-    /// A `Binding` title makes macOS draw the window title as an editable
-    /// field, which is the platform's own rename affordance — AppKit offers
-    /// none for the tab itself.
-    private var titleBinding: Binding<String> {
-        Binding(get: { tab.windowTitle }, set: { tab.rename(to: $0) })
+    @ViewBuilder
+    private func detail(for workspace: Workspace) -> some View {
+        if !workspace.tabs.isEmpty {
+            // Every tab stays built and only the active one is shown. Tearing
+            // the inactive ones down would make each switch re-parent a
+            // SwiftTerm view, which is what made switching feel laggy.
+            ZStack {
+                ForEach(workspace.tabs) { tab in
+                    WorkspaceView(tab: tab, state: state)
+                        .opacity(tab.id == workspace.activeTabID ? 1 : 0)
+                        .allowsHitTesting(tab.id == workspace.activeTabID)
+                }
+            }
+        } else {
+            ContentUnavailableView {
+                Label("No Sessions", systemImage: "terminal")
+            } description: {
+                Text("This project has no open tabs.")
+            } actions: {
+                Button("New Tab") { state.newTab() }
+                    .keyboardShortcut("t", modifiers: .command)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
-/// Captures the SwiftUI-owned `NSWindow` and enrolls it in AppKit's native
-/// tabbing system. Updates also keep shell-provided titles in sync.
-private struct WindowConfigurator: NSViewRepresentable {
-    let state: AppState
-    let tab: TerminalTab
+/// `navigationTitle` alone does not reach a window this app created itself,
+/// so the resolved strings are pushed onto the `NSWindow` as well.
+private struct TitleSynchronizer: NSViewRepresentable {
+    let title: String
+    let subtitle: String
 
-    func makeNSView(context: Context) -> NSView {
-        let view = NSView()
-        DispatchQueue.main.async {
-            guard let window = view.window else { return }
-            NativeWindowCoordinator.shared.register(window: window, tab: tab, state: state)
-        }
-        return view
-    }
+    func makeNSView(context: Context) -> NSView { NSView(frame: .zero) }
 
     func updateNSView(_ nsView: NSView, context: Context) {
+        let title = self.title
+        let subtitle = self.subtitle
         DispatchQueue.main.async {
             guard let window = nsView.window else { return }
-            NativeWindowCoordinator.shared.register(window: window, tab: tab, state: state)
+            window.title = title
+            window.subtitle = subtitle
         }
     }
 }

@@ -3,7 +3,6 @@ import SwiftUI
 
 struct ProjectsSidebar: View {
     @Bindable var state: AppState
-    let tab: TerminalTab
 
     @State private var editingProject: Project?
 
@@ -43,7 +42,7 @@ struct ProjectsSidebar: View {
                 .padding(.vertical, 8)
             }
         }
-        .background(SidebarColumnBounds())
+        .navigationSplitViewColumnWidth(min: 190, ideal: 240, max: 360)
         .sheet(item: $editingProject) { project in
             ProjectEditorView(project: project) { state.updateProject($0) }
         }
@@ -70,12 +69,14 @@ struct ProjectsSidebar: View {
         .help(project.notes.isEmpty ? project.folderPath : "\(project.notes)\n\(project.folderPath)")
     }
 
+    /// Selecting a project swaps the whole workspace — its tabs and its
+    /// inspector come back exactly as they were left.
     private var projectSelection: Binding<Project.ID?> {
         Binding(
-            get: { tab.project?.id },
+            get: { state.activeProjectID },
             set: { projectID in
-                guard let projectID, projectID != tab.project?.id else { return }
-                state.openProject(projectID)
+                guard let projectID else { return }
+                state.selectProject(projectID)
             }
         )
     }

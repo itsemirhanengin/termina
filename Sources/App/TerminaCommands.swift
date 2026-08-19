@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 
 struct TerminaCommands: Commands {
@@ -7,8 +8,6 @@ struct TerminaCommands: Commands {
         CommandGroup(replacing: .newItem) {
             Button("New Tab") { state.newTab() }
                 .keyboardShortcut("t", modifiers: .command)
-            Button("Rename Tab…") { state.promptRenameActiveTab() }
-                .keyboardShortcut("r", modifiers: [.command, .shift])
         }
 
         // Closing widens outwards: ⌘W takes the focused pane and only reaches
@@ -16,14 +15,9 @@ struct TerminaCommands: Commands {
         CommandGroup(replacing: .saveItem) {
             Button("Close Pane") { state.closeFocusedPane() }
                 .keyboardShortcut("w", modifiers: .command)
-            Button("Close Tab") { state.closeCurrentTab() }
+            Button("Close Tab") { state.closeActiveTab() }
                 .keyboardShortcut("w", modifiers: [.command, .option])
-            Button("Close Window") {
-                guard let keyWindow = NSApp.keyWindow else { return }
-                for window in keyWindow.tabbedWindows ?? [keyWindow] {
-                    window.performClose(nil)
-                }
-            }
+            Button("Close Window") { NSApp.keyWindow?.performClose(nil) }
                 .keyboardShortcut("w", modifiers: [.command, .shift])
         }
 

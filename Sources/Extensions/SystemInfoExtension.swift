@@ -4,7 +4,7 @@ import SwiftUI
 /// an inspector panel showing project info, plus quick actions that type
 /// into the focused terminal.
 struct SystemInfoExtension: AppExtension {
-    static let id = "co.bugece.termina.system-info"
+    static let id = "com.itsemirhanengin.termina.system-info"
     static let name = "Project Info"
 
     func activate(_ context: ExtensionContext) {

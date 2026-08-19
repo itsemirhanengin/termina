@@ -13,6 +13,5 @@ struct WorkspaceView: View {
                 Color(nsColor: NSColor(hex: state.activeTheme.background)),
                 ignoresSafeAreaEdges: []
             )
-            .onAppear { state.focusActiveSession() }
     }
 }

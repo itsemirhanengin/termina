@@ -4,7 +4,7 @@ import SwiftUI
 /// provide the platform material, hover feedback, and shared glass capsules.
 struct NativeTerminalToolbar: ToolbarContent {
     let state: AppState
-    let tab: TerminalTab
+    var workspace: Workspace
 
     var body: some ToolbarContent {
         ToolbarItem(placement: .navigation) {
@@ -65,10 +65,10 @@ struct NativeTerminalToolbar: ToolbarContent {
         }
 
         Button {
-            tab.inspectorPresented.toggle()
+            state.toggleInspector()
         } label: {
             Label("Toggle Inspector", systemImage: "sidebar.trailing")
-                .symbolVariant(tab.inspectorPresented ? .fill : .none)
+                .symbolVariant(workspace.inspectorPresented ? .fill : .none)
         }
         .help("Toggle Inspector (⌥⌘I)")
     }

@@ -1,10 +1,11 @@
 import SwiftUI
 
 /// The right-hand inspector hosts the panel chosen from the window toolbar.
-/// Modules remain toolbar actions instead of becoming a second row of tabs.
+/// Its state belongs to the workspace, so moving between a project's tabs
+/// leaves the panel exactly where it was.
 struct InspectorView: View {
-    @Bindable var state: AppState
-    @Bindable var tab: TerminalTab
+    let state: AppState
+    var workspace: Workspace
 
     var body: some View {
         Group {
@@ -24,6 +25,6 @@ struct InspectorView: View {
 
     private var selectedPanel: ExtensionPanel? {
         let panels = state.extensions.panels
-        return panels.first { $0.id == tab.selectedPanelID } ?? panels.first
+        return panels.first { $0.id == workspace.selectedPanelID } ?? panels.first
     }
 }
