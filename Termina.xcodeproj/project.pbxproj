@@ -12,6 +12,7 @@
 		0DBF9F2263A9E84F507C125C /* ExtensionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DDE2A1A24FBA0E12C5293 /* ExtensionRegistry.swift */; };
 		1B76D485FE4CB67A1E98B07A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE464C742682B995617E169 /* Project.swift */; };
 		1CD436FDB5A19407BC6A14E0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235BDD38A53D5A77E591D73B /* SettingsView.swift */; };
+		1E31775BF1936D70D3D44866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 190C5378BB7C123A8EECA9CA /* Assets.xcassets */; };
 		2E17FCCBA850559C2AF6161C /* TerminalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760D714553EEA09C4E6E4E /* TerminalSession.swift */; };
 		30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1855838BD1004D587794C71 /* SplitPaneView.swift */; };
 		39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3981AFCF910387F776B30202 /* SystemInfoExtension.swift */; };
@@ -34,6 +35,7 @@
 		C36DF0A6836DA3A84227D8EB /* NativeWindowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A528F5517DC1876708904A /* NativeWindowCoordinator.swift */; };
 		C8D5FF2C104C3B244917A774 /* TerminalHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */; };
 		D4AE56BD3A233DE367D44533 /* ThemesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */; };
+		D66D1D451A1B788C21F09BF4 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A9AFFB2B2DA2432A972DC /* Brand.swift */; };
 		D6CF9072F231B47C3FA7D42F /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293606830430C6A07349C8E /* ProjectStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,7 @@
 		0EE464C742682B995617E169 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		1293606830430C6A07349C8E /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
 		190C113119B316FC17953F04 /* TerminalTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTab.swift; sourceTree = "<group>"; };
+		190C5378BB7C123A8EECA9CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		235BDD38A53D5A77E591D73B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		239337C81C6C2333D742CA09 /* TerminaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaApp.swift; sourceTree = "<group>"; };
 		23DCCF6C855F2AC84ED9B45A /* PaneTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneTreeView.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		A1855838BD1004D587794C71 /* SplitPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitPaneView.swift; sourceTree = "<group>"; };
 		A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
 		A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		B72A9AFFB2B2DA2432A972DC /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		B90E986792D540F0712B6529 /* ExtensionHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHost.swift; sourceTree = "<group>"; };
 		BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExplorerExtension.swift; sourceTree = "<group>"; };
 		C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaCommands.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		8EF0184262D1E7511357C27C /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				B72A9AFFB2B2DA2432A972DC /* Brand.swift */,
 				F92BDDC2B3F3E43D125DF1E0 /* ObservationToken.swift */,
 			);
 			path = Support;
@@ -146,6 +151,7 @@
 		8F5D6BF94143349CF7A0D5A5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				190C5378BB7C123A8EECA9CA /* Assets.xcassets */,
 				7176ECE0BD43FA8EE8CF305C /* App */,
 				402D193E0327DDE1E5848E47 /* Core */,
 				5E88CB2A9A0384F6C7117CCB /* ExtensionKit */,
@@ -186,6 +192,7 @@
 			buildConfigurationList = EC341A9AD2ED16441549D3BF /* Build configuration list for PBXNativeTarget "Termina" */;
 			buildPhases = (
 				16B423D0327DAAB29149F9EB /* Sources */,
+				D0B4E6FDB72DFF739E3D37F0 /* Resources */,
 				DD9544AEEC52257F8677BC73 /* Frameworks */,
 			);
 			buildRules = (
@@ -236,6 +243,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		D0B4E6FDB72DFF739E3D37F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E31775BF1936D70D3D44866 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		16B423D0327DAAB29149F9EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -243,6 +261,7 @@
 			files = (
 				46A6F8968361733516F39801 /* AppExtension.swift in Sources */,
 				B446DB9536AE627A797B8A16 /* AppState.swift in Sources */,
+				D66D1D451A1B788C21F09BF4 /* Brand.swift in Sources */,
 				A01FBAC555A6783E2298192C /* ExtensionHost.swift in Sources */,
 				8E38489BE6A45B3D98AF176E /* ExtensionManager.swift in Sources */,
 				0DBF9F2263A9E84F507C125C /* ExtensionRegistry.swift in Sources */,
@@ -278,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -423,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;

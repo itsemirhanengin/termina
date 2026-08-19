@@ -16,7 +16,8 @@ struct ThemesExtension: AppExtension {
             // macOS' own dark chrome rather than a second, competing surface.
             background: "#262727",
             foreground: "#D4D4D8",
-            cursor: "#4C8DFF",
+            // The caret is the app's one moving accent, so it carries the brand.
+            cursor: "#E8483F",
             selection: "#434344",
             selectionAlpha: 0.85,
             ansi: [
@@ -35,7 +36,7 @@ struct ThemesExtension: AppExtension {
             // document-on-window relationship, inverted from the dark theme.
             background: "#FFFFFF",
             foreground: "#1F2328",
-            cursor: "#044289",
+            cursor: "#E8483F",
             selection: "#0366D6",
             selectionAlpha: 0.25,
             ansi: [

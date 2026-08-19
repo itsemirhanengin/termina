@@ -22,6 +22,7 @@ struct MainWindow: View {
             NativeTerminalToolbar(state: state, tab: tab)
         }
         .background(WindowConfigurator(state: state, tab: tab))
+        .tint(Brand.primary)
         .frame(minWidth: 820, minHeight: 500)
     }
 
