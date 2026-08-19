@@ -11,16 +11,19 @@ struct ThemesExtension: AppExtension {
             id: "termina-dark",
             name: "Termina Dark",
             isDark: true,
-            background: "#282C34",
-            foreground: "#ABB2BF",
-            cursor: "#528BFF",
-            selection: "#3E4451",
-            selectionAlpha: 0.7,
+            // Neutral greys, no blue cast: the terminal fills the detail area
+            // edge to edge, so its background has to read as a continuation of
+            // macOS' own dark chrome rather than a second, competing surface.
+            background: "#262727",
+            foreground: "#D4D4D8",
+            cursor: "#4C8DFF",
+            selection: "#434344",
+            selectionAlpha: 0.85,
             ansi: [
-                "#282C34", "#E06C75", "#98C379", "#E5C07B",
-                "#61AFEF", "#C678DD", "#56B6C2", "#ABB2BF",
-                "#5C6370", "#E06C75", "#98C379", "#E5C07B",
-                "#61AFEF", "#C678DD", "#56B6C2", "#FFFFFF",
+                "#262727", "#E06C75", "#98C379", "#E5C07B",
+                "#61AFEF", "#C678DD", "#56B6C2", "#D4D4D8",
+                "#6E6E76", "#F0808A", "#A8D98A", "#F0CE8C",
+                "#7CC0F5", "#D38CE8", "#6BC7D2", "#FFFFFF",
             ]
         ))
 
@@ -28,8 +31,10 @@ struct ThemesExtension: AppExtension {
             id: "termina-light",
             name: "Termina Light",
             isDark: false,
+            // White content on macOS' grey light chrome — the native
+            // document-on-window relationship, inverted from the dark theme.
             background: "#FFFFFF",
-            foreground: "#24292E",
+            foreground: "#1F2328",
             cursor: "#044289",
             selection: "#0366D6",
             selectionAlpha: 0.25,

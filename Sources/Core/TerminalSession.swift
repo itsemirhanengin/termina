@@ -23,7 +23,19 @@ final class TerminalSession: Identifiable {
         terminalView.font = .monospacedSystemFont(ofSize: fontSize, weight: .regular)
         theme.apply(to: terminalView)
         terminalView.processDelegate = self
+        hideScroller()
         startShell()
+    }
+
+    /// SwiftTerm pins an `NSScroller` to its trailing edge and reserves that
+    /// width even while the scroller is disabled, which reads as a stray
+    /// vertical strip down the right side of every pane. Hiding it also makes
+    /// SwiftTerm reclaim the reserved width (it checks `isHidden`), so the
+    /// text fills the pane. Trackpad and keyboard scrollback are unaffected.
+    private func hideScroller() {
+        for case let scroller as NSScroller in terminalView.subviews {
+            scroller.isHidden = true
+        }
     }
 
     private func startShell() {

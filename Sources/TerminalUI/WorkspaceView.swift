@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 
 struct WorkspaceView: View {
@@ -5,7 +6,7 @@ struct WorkspaceView: View {
     var state: AppState
 
     var body: some View {
-        PaneTreeView(node: tab.root)
+        PaneTreeView(node: tab.root, surface: NSColor(hex: state.activeTheme.background))
             .id(tab.root.id)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(
