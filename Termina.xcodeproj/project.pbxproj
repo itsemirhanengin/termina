@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05283AC90FE295D40DAC5AFA /* TerminaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239337C81C6C2333D742CA09 /* TerminaApp.swift */; };
+		0C7245A7DFE813DC3FEF37B7 /* TerminalTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F68033669A5170C974D55 /* TerminalTheme.swift */; };
+		0DBF9F2263A9E84F507C125C /* ExtensionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DDE2A1A24FBA0E12C5293 /* ExtensionRegistry.swift */; };
+		1B76D485FE4CB67A1E98B07A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE464C742682B995617E169 /* Project.swift */; };
+		1CD436FDB5A19407BC6A14E0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235BDD38A53D5A77E591D73B /* SettingsView.swift */; };
+		2E17FCCBA850559C2AF6161C /* TerminalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760D714553EEA09C4E6E4E /* TerminalSession.swift */; };
+		30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1855838BD1004D587794C71 /* SplitPaneView.swift */; };
+		39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3981AFCF910387F776B30202 /* SystemInfoExtension.swift */; };
+		46A6F8968361733516F39801 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */; };
+		53D49775D509F649923A3C79 /* ProjectsSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974359D4E82134F3622EC460 /* ProjectsSidebar.swift */; };
+		56913084EDA0D94F663BE094 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591E791DE61BAA1927D2FA66 /* TabBarView.swift */; };
+		57C5FE1CD5F62735FEA65297 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = FD064C2BA52A33EA48E45758 /* SwiftTerm */; };
+		6D52DE6A4F87AF48A5CB7A54 /* WorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */; };
+		6F2EFCB1FFC65ECFB5F603E6 /* PaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FADB1A21EE3366AAA469F /* PaneNode.swift */; };
+		83A86B7EA0AF3E8E01CE9FF9 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */; };
+		8E38489BE6A45B3D98AF176E /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721171F428F62115DD858277 /* ExtensionManager.swift */; };
+		947B157369A32F0BEE89CED6 /* TerminaCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */; };
+		A01FBAC555A6783E2298192C /* ExtensionHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E986792D540F0712B6529 /* ExtensionHost.swift */; };
+		A52226ED1CEDE5CFA8DDC381 /* TerminalTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190C113119B316FC17953F04 /* TerminalTab.swift */; };
+		A75D0B5D948823F213BD0072 /* PaneTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCCF6C855F2AC84ED9B45A /* PaneTreeView.swift */; };
+		AE529695049B169DD06D11AD /* ObservationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BDDC2B3F3E43D125DF1E0 /* ObservationToken.swift */; };
+		B446DB9536AE627A797B8A16 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9D5605D093350DDE59234 /* AppState.swift */; };
+		B5265D8B387FBF43F8E8C958 /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */; };
+		C36DF0A6836DA3A84227D8EB /* NativeWindowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A528F5517DC1876708904A /* NativeWindowCoordinator.swift */; };
+		C8D5FF2C104C3B244917A774 /* TerminalHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */; };
+		D4AE56BD3A233DE367D44533 /* ThemesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */; };
+		D6CF9072F231B47C3FA7D42F /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293606830430C6A07349C8E /* ProjectStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0EE464C742682B995617E169 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		1293606830430C6A07349C8E /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
+		190C113119B316FC17953F04 /* TerminalTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTab.swift; sourceTree = "<group>"; };
+		235BDD38A53D5A77E591D73B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		239337C81C6C2333D742CA09 /* TerminaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaApp.swift; sourceTree = "<group>"; };
+		23DCCF6C855F2AC84ED9B45A /* PaneTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneTreeView.swift; sourceTree = "<group>"; };
+		3981AFCF910387F776B30202 /* SystemInfoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoExtension.swift; sourceTree = "<group>"; };
+		57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesExtension.swift; sourceTree = "<group>"; };
+		591E791DE61BAA1927D2FA66 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		5BC9D5605D093350DDE59234 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		721171F428F62115DD858277 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
+		772DDE2A1A24FBA0E12C5293 /* ExtensionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRegistry.swift; sourceTree = "<group>"; };
+		7C4F68033669A5170C974D55 /* TerminalTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTheme.swift; sourceTree = "<group>"; };
+		8DC1CB56278147C5A3E797A2 /* Termina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Termina.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
+		8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalHostView.swift; sourceTree = "<group>"; };
+		974359D4E82134F3622EC460 /* ProjectsSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsSidebar.swift; sourceTree = "<group>"; };
+		A1855838BD1004D587794C71 /* SplitPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitPaneView.swift; sourceTree = "<group>"; };
+		A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
+		A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		B90E986792D540F0712B6529 /* ExtensionHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHost.swift; sourceTree = "<group>"; };
+		C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaCommands.swift; sourceTree = "<group>"; };
+		E0A528F5517DC1876708904A /* NativeWindowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeWindowCoordinator.swift; sourceTree = "<group>"; };
+		E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceView.swift; sourceTree = "<group>"; };
+		F77FADB1A21EE3366AAA469F /* PaneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneNode.swift; sourceTree = "<group>"; };
+		F92BDDC2B3F3E43D125DF1E0 /* ObservationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationToken.swift; sourceTree = "<group>"; };
+		FD760D714553EEA09C4E6E4E /* TerminalSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSession.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD9544AEEC52257F8677BC73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57C5FE1CD5F62735FEA65297 /* SwiftTerm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3790DE38712567B40269FB93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC1CB56278147C5A3E797A2 /* Termina.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		402D193E0327DDE1E5848E47 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F77FADB1A21EE3366AAA469F /* PaneNode.swift */,
+				0EE464C742682B995617E169 /* Project.swift */,
+				1293606830430C6A07349C8E /* ProjectStore.swift */,
+				FD760D714553EEA09C4E6E4E /* TerminalSession.swift */,
+				190C113119B316FC17953F04 /* TerminalTab.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5E88CB2A9A0384F6C7117CCB /* ExtensionKit */ = {
+			isa = PBXGroup;
+			children = (
+				A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */,
+				B90E986792D540F0712B6529 /* ExtensionHost.swift */,
+				721171F428F62115DD858277 /* ExtensionManager.swift */,
+				772DDE2A1A24FBA0E12C5293 /* ExtensionRegistry.swift */,
+				7C4F68033669A5170C974D55 /* TerminalTheme.swift */,
+			);
+			path = ExtensionKit;
+			sourceTree = "<group>";
+		};
+		632C1A4D21DDA84E491AF3C6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3981AFCF910387F776B30202 /* SystemInfoExtension.swift */,
+				57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7176ECE0BD43FA8EE8CF305C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5BC9D5605D093350DDE59234 /* AppState.swift */,
+				A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */,
+				E0A528F5517DC1876708904A /* NativeWindowCoordinator.swift */,
+				235BDD38A53D5A77E591D73B /* SettingsView.swift */,
+				239337C81C6C2333D742CA09 /* TerminaApp.swift */,
+				C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8EF0184262D1E7511357C27C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				F92BDDC2B3F3E43D125DF1E0 /* ObservationToken.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		8F5D6BF94143349CF7A0D5A5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7176ECE0BD43FA8EE8CF305C /* App */,
+				402D193E0327DDE1E5848E47 /* Core */,
+				5E88CB2A9A0384F6C7117CCB /* ExtensionKit */,
+				632C1A4D21DDA84E491AF3C6 /* Extensions */,
+				8EF0184262D1E7511357C27C /* Support */,
+				CC3E8098082D18B4535A74B4 /* TerminalUI */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CC3E8098082D18B4535A74B4 /* TerminalUI */ = {
+			isa = PBXGroup;
+			children = (
+				8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */,
+				23DCCF6C855F2AC84ED9B45A /* PaneTreeView.swift */,
+				974359D4E82134F3622EC460 /* ProjectsSidebar.swift */,
+				A1855838BD1004D587794C71 /* SplitPaneView.swift */,
+				591E791DE61BAA1927D2FA66 /* TabBarView.swift */,
+				8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */,
+				E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */,
+			);
+			path = TerminalUI;
+			sourceTree = "<group>";
+		};
+		E15FE14B0C697763820720AA = {
+			isa = PBXGroup;
+			children = (
+				8F5D6BF94143349CF7A0D5A5 /* Sources */,
+				3790DE38712567B40269FB93 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22CD204E58AE626305A8CA3D /* Termina */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC341A9AD2ED16441549D3BF /* Build configuration list for PBXNativeTarget "Termina" */;
+			buildPhases = (
+				16B423D0327DAAB29149F9EB /* Sources */,
+				DD9544AEEC52257F8677BC73 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Termina;
+			packageProductDependencies = (
+				FD064C2BA52A33EA48E45758 /* SwiftTerm */,
+			);
+			productName = Termina;
+			productReference = 8DC1CB56278147C5A3E797A2 /* Termina.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80A375135CDF26FC7990B4F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					22CD204E58AE626305A8CA3D = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 0B0C5495833434D8B1514EEF /* Build configuration list for PBXProject "Termina" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E15FE14B0C697763820720AA;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				27F8BBFE2B2A706D0A82934D /* XCRemoteSwiftPackageReference "SwiftTerm" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3790DE38712567B40269FB93 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22CD204E58AE626305A8CA3D /* Termina */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16B423D0327DAAB29149F9EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A6F8968361733516F39801 /* AppExtension.swift in Sources */,
+				B446DB9536AE627A797B8A16 /* AppState.swift in Sources */,
+				A01FBAC555A6783E2298192C /* ExtensionHost.swift in Sources */,
+				8E38489BE6A45B3D98AF176E /* ExtensionManager.swift in Sources */,
+				0DBF9F2263A9E84F507C125C /* ExtensionRegistry.swift in Sources */,
+				B5265D8B387FBF43F8E8C958 /* InspectorView.swift in Sources */,
+				83A86B7EA0AF3E8E01CE9FF9 /* MainWindow.swift in Sources */,
+				C36DF0A6836DA3A84227D8EB /* NativeWindowCoordinator.swift in Sources */,
+				AE529695049B169DD06D11AD /* ObservationToken.swift in Sources */,
+				6F2EFCB1FFC65ECFB5F603E6 /* PaneNode.swift in Sources */,
+				A75D0B5D948823F213BD0072 /* PaneTreeView.swift in Sources */,
+				1B76D485FE4CB67A1E98B07A /* Project.swift in Sources */,
+				D6CF9072F231B47C3FA7D42F /* ProjectStore.swift in Sources */,
+				53D49775D509F649923A3C79 /* ProjectsSidebar.swift in Sources */,
+				1CD436FDB5A19407BC6A14E0 /* SettingsView.swift in Sources */,
+				30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */,
+				39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */,
+				56913084EDA0D94F663BE094 /* TabBarView.swift in Sources */,
+				05283AC90FE295D40DAC5AFA /* TerminaApp.swift in Sources */,
+				947B157369A32F0BEE89CED6 /* TerminaCommands.swift in Sources */,
+				C8D5FF2C104C3B244917A774 /* TerminalHostView.swift in Sources */,
+				2E17FCCBA850559C2AF6161C /* TerminalSession.swift in Sources */,
+				A52226ED1CEDE5CFA8DDC381 /* TerminalTab.swift in Sources */,
+				0C7245A7DFE813DC3FEF37B7 /* TerminalTheme.swift in Sources */,
+				D4AE56BD3A233DE367D44533 /* ThemesExtension.swift in Sources */,
+				6D52DE6A4F87AF48A5CB7A54 /* WorkspaceView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0F58C7AFE99DEAB2C6909DF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.bugece.termina;
+				PRODUCT_NAME = Termina;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		23216420A9FB7A4719033043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6677F2A20DBAA44216483553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FA52087FC4B18EF4C4A5DF4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.bugece.termina;
+				PRODUCT_NAME = Termina;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B0C5495833434D8B1514EEF /* Build configuration list for PBXProject "Termina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23216420A9FB7A4719033043 /* Debug */,
+				6677F2A20DBAA44216483553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EC341A9AD2ED16441549D3BF /* Build configuration list for PBXNativeTarget "Termina" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F58C7AFE99DEAB2C6909DF5 /* Debug */,
+				FA52087FC4B18EF4C4A5DF4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		27F8BBFE2B2A706D0A82934D /* XCRemoteSwiftPackageReference "SwiftTerm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/migueldeicaza/SwiftTerm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FD064C2BA52A33EA48E45758 /* SwiftTerm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27F8BBFE2B2A706D0A82934D /* XCRemoteSwiftPackageReference "SwiftTerm" */;
+			productName = SwiftTerm;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 80A375135CDF26FC7990B4F3 /* Project object */;
+}

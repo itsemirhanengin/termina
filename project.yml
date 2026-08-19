@@ -1,0 +1,35 @@
+name: Termina
+options:
+  bundleIdPrefix: co.bugece
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+
+packages:
+  SwiftTerm:
+    url: https://github.com/migueldeicaza/SwiftTerm
+    from: 1.0.0
+
+targets:
+  Termina:
+    type: application
+    platform: macOS
+    sources:
+      - Sources
+    dependencies:
+      - package: SwiftTerm
+    settings:
+      base:
+        PRODUCT_NAME: Termina
+        PRODUCT_BUNDLE_IDENTIFIER: co.bugece.termina
+        SWIFT_VERSION: "5.0"
+        MACOSX_DEPLOYMENT_TARGET: "15.0"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Manual
+        ENABLE_HARDENED_RUNTIME: NO
+        DEAD_CODE_STRIPPING: YES
+        SWIFT_STRICT_CONCURRENCY: minimal
