@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		05283AC90FE295D40DAC5AFA /* TerminaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239337C81C6C2333D742CA09 /* TerminaApp.swift */; };
+		0A831A09CF91E2C03145BCDD /* TodoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFB6D883AD0CC6EAAB71F29 /* TodoExtension.swift */; };
 		0C7245A7DFE813DC3FEF37B7 /* TerminalTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4F68033669A5170C974D55 /* TerminalTheme.swift */; };
 		0DBF9F2263A9E84F507C125C /* ExtensionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DDE2A1A24FBA0E12C5293 /* ExtensionRegistry.swift */; };
 		1B76D485FE4CB67A1E98B07A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE464C742682B995617E169 /* Project.swift */; };
 		1CD436FDB5A19407BC6A14E0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235BDD38A53D5A77E591D73B /* SettingsView.swift */; };
 		1E31775BF1936D70D3D44866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 190C5378BB7C123A8EECA9CA /* Assets.xcassets */; };
+		1EB2EE170E7851A54BD65E94 /* TodoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C48B69B6D6990F48E9116A7 /* TodoDocument.swift */; };
 		2E17FCCBA850559C2AF6161C /* TerminalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760D714553EEA09C4E6E4E /* TerminalSession.swift */; };
 		30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1855838BD1004D587794C71 /* SplitPaneView.swift */; };
 		39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3981AFCF910387F776B30202 /* SystemInfoExtension.swift */; };
 		3CFD48B7CE18F20EA4877533 /* ProjectIconStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */; };
+		40D3CDC984895132E5F441B9 /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23246D4818AA8B7AF04F6935 /* FileWatcher.swift */; };
 		46A6F8968361733516F39801 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */; };
 		4EA871BF477C47162B1550DD /* TabStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909FDEC10E18FCDEC898E52A /* TabStripView.swift */; };
 		53D49775D509F649923A3C79 /* ProjectsSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974359D4E82134F3622EC460 /* ProjectsSidebar.swift */; };
@@ -26,9 +29,11 @@
 		6D52DE6A4F87AF48A5CB7A54 /* WorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */; };
 		6F2EFCB1FFC65ECFB5F603E6 /* PaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FADB1A21EE3366AAA469F /* PaneNode.swift */; };
 		7AE22B567D933141768B60AB /* ProjectIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0782CD826E9B970404EB370 /* ProjectIconView.swift */; };
+		80FA4A14BD5AAB380936891A /* TodoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF4562F2F58374DB8AEB1EA /* TodoStore.swift */; };
 		83A86B7EA0AF3E8E01CE9FF9 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */; };
 		8E38489BE6A45B3D98AF176E /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721171F428F62115DD858277 /* ExtensionManager.swift */; };
 		947B157369A32F0BEE89CED6 /* TerminaCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */; };
+		979CB0920AEE71F2E9155019 /* InlineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C030D3EEA75BDBB56770A04 /* InlineTextField.swift */; };
 		A01FBAC555A6783E2298192C /* ExtensionHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E986792D540F0712B6529 /* ExtensionHost.swift */; };
 		A325FE652DB7C7E4E40F03C9 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FE8CD7F46F41E2EDD5CA39 /* Workspace.swift */; };
 		A52226ED1CEDE5CFA8DDC381 /* TerminalTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190C113119B316FC17953F04 /* TerminalTab.swift */; };
@@ -37,6 +42,7 @@
 		B446DB9536AE627A797B8A16 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC9D5605D093350DDE59234 /* AppState.swift */; };
 		B5265D8B387FBF43F8E8C958 /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */; };
 		BBD1BCFA4C2AE004F912B7AC /* FileExplorerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */; };
+		BED30756F82D38FA4961636A /* TodoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5B44C52E12C23B19638EC /* TodoPanelView.swift */; };
 		C8D5FF2C104C3B244917A774 /* TerminalHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */; };
 		D4AE56BD3A233DE367D44533 /* ThemesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */; };
 		D66D1D451A1B788C21F09BF4 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A9AFFB2B2DA2432A972DC /* Brand.swift */; };
@@ -45,14 +51,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BF4562F2F58374DB8AEB1EA /* TodoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStore.swift; sourceTree = "<group>"; };
 		0EE464C742682B995617E169 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		1293606830430C6A07349C8E /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
 		190C113119B316FC17953F04 /* TerminalTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTab.swift; sourceTree = "<group>"; };
 		190C5378BB7C123A8EECA9CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D4D7A85F4B0CCF5242F9722 /* ProjectEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditorView.swift; sourceTree = "<group>"; };
+		23246D4818AA8B7AF04F6935 /* FileWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWatcher.swift; sourceTree = "<group>"; };
 		235BDD38A53D5A77E591D73B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		239337C81C6C2333D742CA09 /* TerminaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaApp.swift; sourceTree = "<group>"; };
 		23DCCF6C855F2AC84ED9B45A /* PaneTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneTreeView.swift; sourceTree = "<group>"; };
+		2FE5B44C52E12C23B19638EC /* TodoPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoPanelView.swift; sourceTree = "<group>"; };
 		3981AFCF910387F776B30202 /* SystemInfoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoExtension.swift; sourceTree = "<group>"; };
 		57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesExtension.swift; sourceTree = "<group>"; };
 		58FE8CD7F46F41E2EDD5CA39 /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
@@ -61,7 +70,9 @@
 		714F7759FE4D38DD8ADDD23B /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		721171F428F62115DD858277 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 		772DDE2A1A24FBA0E12C5293 /* ExtensionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRegistry.swift; sourceTree = "<group>"; };
+		7C030D3EEA75BDBB56770A04 /* InlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineTextField.swift; sourceTree = "<group>"; };
 		7C4F68033669A5170C974D55 /* TerminalTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTheme.swift; sourceTree = "<group>"; };
+		8C48B69B6D6990F48E9116A7 /* TodoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDocument.swift; sourceTree = "<group>"; };
 		8DC1CB56278147C5A3E797A2 /* Termina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Termina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
 		8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalHostView.swift; sourceTree = "<group>"; };
@@ -71,6 +82,7 @@
 		A1855838BD1004D587794C71 /* SplitPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitPaneView.swift; sourceTree = "<group>"; };
 		A8A2F2DD4C7ECFF9ADB0025E /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
 		A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		AFFB6D883AD0CC6EAAB71F29 /* TodoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoExtension.swift; sourceTree = "<group>"; };
 		B72A9AFFB2B2DA2432A972DC /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		B90E986792D540F0712B6529 /* ExtensionHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHost.swift; sourceTree = "<group>"; };
 		BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExplorerExtension.swift; sourceTree = "<group>"; };
@@ -105,12 +117,15 @@
 		402D193E0327DDE1E5848E47 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				23246D4818AA8B7AF04F6935 /* FileWatcher.swift */,
 				F77FADB1A21EE3366AAA469F /* PaneNode.swift */,
 				0EE464C742682B995617E169 /* Project.swift */,
 				CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */,
 				1293606830430C6A07349C8E /* ProjectStore.swift */,
 				FD760D714553EEA09C4E6E4E /* TerminalSession.swift */,
 				190C113119B316FC17953F04 /* TerminalTab.swift */,
+				8C48B69B6D6990F48E9116A7 /* TodoDocument.swift */,
+				0BF4562F2F58374DB8AEB1EA /* TodoStore.swift */,
 				58FE8CD7F46F41E2EDD5CA39 /* Workspace.swift */,
 			);
 			path = Core;
@@ -134,6 +149,7 @@
 				BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */,
 				3981AFCF910387F776B30202 /* SystemInfoExtension.swift */,
 				57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */,
+				AFFB6D883AD0CC6EAAB71F29 /* TodoExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,6 +193,7 @@
 		CC3E8098082D18B4535A74B4 /* TerminalUI */ = {
 			isa = PBXGroup;
 			children = (
+				7C030D3EEA75BDBB56770A04 /* InlineTextField.swift */,
 				8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */,
 				23DCCF6C855F2AC84ED9B45A /* PaneTreeView.swift */,
 				1D4D7A85F4B0CCF5242F9722 /* ProjectEditorView.swift */,
@@ -186,6 +203,7 @@
 				591E791DE61BAA1927D2FA66 /* TabBarView.swift */,
 				909FDEC10E18FCDEC898E52A /* TabStripView.swift */,
 				8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */,
+				2FE5B44C52E12C23B19638EC /* TodoPanelView.swift */,
 				E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */,
 			);
 			path = TerminalUI;
@@ -281,6 +299,8 @@
 				8E38489BE6A45B3D98AF176E /* ExtensionManager.swift in Sources */,
 				0DBF9F2263A9E84F507C125C /* ExtensionRegistry.swift in Sources */,
 				BBD1BCFA4C2AE004F912B7AC /* FileExplorerExtension.swift in Sources */,
+				40D3CDC984895132E5F441B9 /* FileWatcher.swift in Sources */,
+				979CB0920AEE71F2E9155019 /* InlineTextField.swift in Sources */,
 				B5265D8B387FBF43F8E8C958 /* InspectorView.swift in Sources */,
 				83A86B7EA0AF3E8E01CE9FF9 /* MainWindow.swift in Sources */,
 				600C104CC0424BC3628D734A /* MainWindowController.swift in Sources */,
@@ -305,6 +325,10 @@
 				A52226ED1CEDE5CFA8DDC381 /* TerminalTab.swift in Sources */,
 				0C7245A7DFE813DC3FEF37B7 /* TerminalTheme.swift in Sources */,
 				D4AE56BD3A233DE367D44533 /* ThemesExtension.swift in Sources */,
+				1EB2EE170E7851A54BD65E94 /* TodoDocument.swift in Sources */,
+				0A831A09CF91E2C03145BCDD /* TodoExtension.swift in Sources */,
+				BED30756F82D38FA4961636A /* TodoPanelView.swift in Sources */,
+				80FA4A14BD5AAB380936891A /* TodoStore.swift in Sources */,
 				A325FE652DB7C7E4E40F03C9 /* Workspace.swift in Sources */,
 				6D52DE6A4F87AF48A5CB7A54 /* WorkspaceView.swift in Sources */,
 			);

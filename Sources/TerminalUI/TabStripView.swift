@@ -89,12 +89,6 @@ private struct TabItemView: View {
     let onEndRename: (String?) -> Void
     let onCloseOthers: () -> Void
 
-    @State private var draftTitle = ""
-    /// Focus arrives a beat after the field appears, so a plain "lost focus"
-    /// check would end the edit before it began.
-    @State private var renameFieldEverFocused = false
-    @FocusState private var renameFieldFocused: Bool
-
     var body: some View {
         // A plain Button selects on mouse-up with no delay. Pairing a single
         // and a double `onTapGesture` instead would make every click wait out
@@ -110,22 +104,6 @@ private struct TabItemView: View {
             Button("Close Tab") { onClose() }
             Button("Close Other Tabs") { onCloseOthers() }
         }
-        .onChange(of: isRenaming) { _, renaming in
-            if renaming {
-                draftTitle = tab.customTitle ?? tab.title
-                renameFieldEverFocused = false
-                renameFieldFocused = true
-            }
-        }
-        // Clicking away is the reflex for "never mind" — commit what is there
-        // and leave edit mode rather than trapping the user in it.
-        .onChange(of: renameFieldFocused) { _, focused in
-            if focused {
-                renameFieldEverFocused = true
-            } else if renameFieldEverFocused && isRenaming {
-                onEndRename(draftTitle)
-            }
-        }
     }
 
     private var label: some View {
@@ -135,14 +113,14 @@ private struct TabItemView: View {
                 .padding(.vertical, verticalInset)
 
             if isRenaming {
-                TextField("", text: $draftTitle)
-                    .textFieldStyle(.plain)
-                    .font(.system(size: 13))
-                    .multilineTextAlignment(.center)
-                    .focused($renameFieldFocused)
-                    .onSubmit { onEndRename(draftTitle) }
-                    .onExitCommand { onEndRename(nil) }
-                    .padding(.horizontal, 32)
+                InlineTextField(
+                    text: tab.customTitle ?? tab.title,
+                    font: .systemFont(ofSize: 13),
+                    alignment: .center,
+                    onCommit: { onEndRename($0) },
+                    onCancel: { onEndRename(nil) }
+                )
+                .padding(.horizontal, 32)
             } else {
                 Text(tab.title)
                     .font(.system(size: 13, weight: isSelected ? .semibold : .regular))
