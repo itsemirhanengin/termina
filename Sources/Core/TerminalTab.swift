@@ -27,16 +27,24 @@ final class TerminalTab: Identifiable {
         sessions.first { $0.id == focusedSessionID } ?? sessions.first
     }
 
-    /// Shell-reported title of the focused pane, if the shell set one.
-    var shellTitle: String? {
-        let title = focusedSession?.title ?? ""
-        return title.isEmpty ? nil : title
+    /// Shell-reported title of the focused pane, if the shell set one, with
+    /// the spinner frame a working CLI prefixes it with peeled off.
+    var shellTitle: ShellTitle? {
+        let raw = focusedSession?.title ?? ""
+        guard !raw.isEmpty else { return nil }
+        let parsed = ShellTitle(raw)
+        return parsed.text.isEmpty ? nil : parsed
     }
 
     var defaultTitle: String { folderURL.lastPathComponent }
 
     /// What the tab strip draws.
-    var title: String { customTitle ?? shellTitle ?? defaultTitle }
+    var title: String { customTitle ?? shellTitle?.text ?? defaultTitle }
+
+    /// True while the focused shell is spinning. The tab strip draws a native
+    /// progress indicator for it — a renamed tab still shows the spinner,
+    /// since the work is going on either way.
+    var isBusy: Bool { shellTitle?.isBusy ?? false }
 
     /// Whitespace-only input clears the override so the tab follows the shell
     /// again, which is how the rename field's empty state is meant to read.

@@ -122,14 +122,23 @@ private struct TabItemView: View {
                 )
                 .padding(.horizontal, 32)
             } else {
-                Text(tab.title)
-                    .font(.system(size: 13, weight: isSelected ? .semibold : .regular))
-                    .foregroundStyle(isSelected ? AnyShapeStyle(.primary) : AnyShapeStyle(.secondary))
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    // Symmetric so the title stays optically centred whether
-                    // or not the close button is showing.
-                    .padding(.horizontal, 32)
+                HStack(spacing: 5) {
+                    // The shell's own spinner glyph is stripped out of the
+                    // title (see `ShellTitle`) and drawn as the system
+                    // indicator instead.
+                    if tab.isBusy {
+                        ProgressView()
+                            .controlSize(.small)
+                    }
+                    Text(tab.title)
+                        .font(.system(size: 13, weight: isSelected ? .semibold : .regular))
+                        .foregroundStyle(isSelected ? AnyShapeStyle(.primary) : AnyShapeStyle(.secondary))
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                }
+                // Symmetric so the title stays optically centred whether
+                // or not the close button is showing.
+                .padding(.horizontal, 32)
             }
 
             if isHovered && !isRenaming {

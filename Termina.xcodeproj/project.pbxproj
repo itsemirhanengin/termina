@@ -17,6 +17,7 @@
 		1EB2EE170E7851A54BD65E94 /* TodoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C48B69B6D6990F48E9116A7 /* TodoDocument.swift */; };
 		2E17FCCBA850559C2AF6161C /* TerminalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD760D714553EEA09C4E6E4E /* TerminalSession.swift */; };
 		30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1855838BD1004D587794C71 /* SplitPaneView.swift */; };
+		31766666CF58952BD7F634C4 /* ShellTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB991619BC381A31F8C786FC /* ShellTitle.swift */; };
 		39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3981AFCF910387F776B30202 /* SystemInfoExtension.swift */; };
 		3CFD48B7CE18F20EA4877533 /* ProjectIconStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */; };
 		40D3CDC984895132E5F441B9 /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23246D4818AA8B7AF04F6935 /* FileWatcher.swift */; };
@@ -91,6 +92,7 @@
 		C5D72032D48E94F387B6DB19 /* TerminaCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminaCommands.swift; sourceTree = "<group>"; };
 		CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectIconStore.swift; sourceTree = "<group>"; };
 		E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceView.swift; sourceTree = "<group>"; };
+		EB991619BC381A31F8C786FC /* ShellTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellTitle.swift; sourceTree = "<group>"; };
 		F77FADB1A21EE3366AAA469F /* PaneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneNode.swift; sourceTree = "<group>"; };
 		F92BDDC2B3F3E43D125DF1E0 /* ObservationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationToken.swift; sourceTree = "<group>"; };
 		FD760D714553EEA09C4E6E4E /* TerminalSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSession.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				0EE464C742682B995617E169 /* Project.swift */,
 				CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */,
 				1293606830430C6A07349C8E /* ProjectStore.swift */,
+				EB991619BC381A31F8C786FC /* ShellTitle.swift */,
 				0EE12683036C3C7C6C41CFB9 /* ShiftReturnKeyMonitor.swift */,
 				FD760D714553EEA09C4E6E4E /* TerminalSession.swift */,
 				190C113119B316FC17953F04 /* TerminalTab.swift */,
@@ -317,6 +320,7 @@
 				D6CF9072F231B47C3FA7D42F /* ProjectStore.swift in Sources */,
 				53D49775D509F649923A3C79 /* ProjectsSidebar.swift in Sources */,
 				1CD436FDB5A19407BC6A14E0 /* SettingsView.swift in Sources */,
+				31766666CF58952BD7F634C4 /* ShellTitle.swift in Sources */,
 				70B9B146C1C498BD4D7B80B3 /* ShiftReturnKeyMonitor.swift in Sources */,
 				30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */,
 				39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */,
