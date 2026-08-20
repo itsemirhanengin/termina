@@ -28,6 +28,7 @@
 		600C104CC0424BC3628D734A /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F7759FE4D38DD8ADDD23B /* MainWindowController.swift */; };
 		6D52DE6A4F87AF48A5CB7A54 /* WorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72794AC2F53E5A4CE437364 /* WorkspaceView.swift */; };
 		6F2EFCB1FFC65ECFB5F603E6 /* PaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FADB1A21EE3366AAA469F /* PaneNode.swift */; };
+		70B9B146C1C498BD4D7B80B3 /* ShiftReturnKeyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE12683036C3C7C6C41CFB9 /* ShiftReturnKeyMonitor.swift */; };
 		7AE22B567D933141768B60AB /* ProjectIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0782CD826E9B970404EB370 /* ProjectIconView.swift */; };
 		80FA4A14BD5AAB380936891A /* TodoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF4562F2F58374DB8AEB1EA /* TodoStore.swift */; };
 		83A86B7EA0AF3E8E01CE9FF9 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E5B5A07A83B0193F6C35A9 /* MainWindow.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		0BF4562F2F58374DB8AEB1EA /* TodoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStore.swift; sourceTree = "<group>"; };
+		0EE12683036C3C7C6C41CFB9 /* ShiftReturnKeyMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftReturnKeyMonitor.swift; sourceTree = "<group>"; };
 		0EE464C742682B995617E169 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		1293606830430C6A07349C8E /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
 		190C113119B316FC17953F04 /* TerminalTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTab.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				0EE464C742682B995617E169 /* Project.swift */,
 				CAA7C1F350E4C20306DB397D /* ProjectIconStore.swift */,
 				1293606830430C6A07349C8E /* ProjectStore.swift */,
+				0EE12683036C3C7C6C41CFB9 /* ShiftReturnKeyMonitor.swift */,
 				FD760D714553EEA09C4E6E4E /* TerminalSession.swift */,
 				190C113119B316FC17953F04 /* TerminalTab.swift */,
 				8C48B69B6D6990F48E9116A7 /* TodoDocument.swift */,
@@ -314,6 +317,7 @@
 				D6CF9072F231B47C3FA7D42F /* ProjectStore.swift in Sources */,
 				53D49775D509F649923A3C79 /* ProjectsSidebar.swift in Sources */,
 				1CD436FDB5A19407BC6A14E0 /* SettingsView.swift in Sources */,
+				70B9B146C1C498BD4D7B80B3 /* ShiftReturnKeyMonitor.swift in Sources */,
 				30F70409B55248D8B98AA8B5 /* SplitPaneView.swift in Sources */,
 				39E13F273293F904181C2A3A /* SystemInfoExtension.swift in Sources */,
 				56913084EDA0D94F663BE094 /* TabBarView.swift in Sources */,

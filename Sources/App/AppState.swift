@@ -59,6 +59,7 @@ final class AppState {
             ?? projects.first?.id
 
         installFocusMonitor()
+        ShiftReturnKeyMonitor.install()
     }
 
     // MARK: Derived state
