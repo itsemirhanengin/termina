@@ -15,12 +15,12 @@ final class TerminalSession: Identifiable {
     @ObservationIgnored var onTerminated: ((TerminalSession) -> Void)?
     @ObservationIgnored let terminalView: LocalProcessTerminalView
 
-    init(folderURL: URL, theme: TerminalTheme, fontSize: CGFloat) {
+    init(folderURL: URL, theme: TerminalTheme, font: NSFont) {
         self.folderURL = folderURL
         self.terminalView = LocalProcessTerminalView(
             frame: NSRect(x: 0, y: 0, width: 800, height: 600)
         )
-        terminalView.font = .monospacedSystemFont(ofSize: fontSize, weight: .regular)
+        terminalView.font = font
         theme.apply(to: terminalView)
         terminalView.processDelegate = self
         hideScroller()

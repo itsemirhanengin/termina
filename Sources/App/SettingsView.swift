@@ -3,11 +3,23 @@ import SwiftUI
 struct SettingsView: View {
     @Bindable var state: AppState = .shared
 
+    /// Resolved once per settings window rather than on every body pass —
+    /// enumerating font families touches the font database.
+    private let monospacedFamilies = TerminalFont.monospacedFamilies()
+
     var body: some View {
         Form {
             Picker("Theme", selection: $state.activeThemeID) {
                 ForEach(state.extensions.themes) { theme in
                     Text(theme.name).tag(theme.id)
+                }
+            }
+
+            Picker("Font", selection: $state.fontFamily) {
+                Text("System Mono").tag(TerminalFont.systemFamily)
+                Divider()
+                ForEach(monospacedFamilies, id: \.self) { family in
+                    Text(family).tag(family)
                 }
             }
 

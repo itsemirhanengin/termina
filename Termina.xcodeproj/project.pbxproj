@@ -46,6 +46,7 @@
 		BBD1BCFA4C2AE004F912B7AC /* FileExplorerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C1D92C82D38567AF8F847 /* FileExplorerExtension.swift */; };
 		BED30756F82D38FA4961636A /* TodoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5B44C52E12C23B19638EC /* TodoPanelView.swift */; };
 		C8D5FF2C104C3B244917A774 /* TerminalHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA4BE89BDA675E7A044345 /* TerminalHostView.swift */; };
+		D38CA7A608A42D5D5356A745 /* TerminalFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804D730A0CF76C5BA4EDA849 /* TerminalFont.swift */; };
 		D4AE56BD3A233DE367D44533 /* ThemesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57496A1BCB35CECFFEC0B2C8 /* ThemesExtension.swift */; };
 		D66D1D451A1B788C21F09BF4 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72A9AFFB2B2DA2432A972DC /* Brand.swift */; };
 		D6CF9072F231B47C3FA7D42F /* ProjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293606830430C6A07349C8E /* ProjectStore.swift */; };
@@ -75,6 +76,7 @@
 		772DDE2A1A24FBA0E12C5293 /* ExtensionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRegistry.swift; sourceTree = "<group>"; };
 		7C030D3EEA75BDBB56770A04 /* InlineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineTextField.swift; sourceTree = "<group>"; };
 		7C4F68033669A5170C974D55 /* TerminalTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTheme.swift; sourceTree = "<group>"; };
+		804D730A0CF76C5BA4EDA849 /* TerminalFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalFont.swift; sourceTree = "<group>"; };
 		8C48B69B6D6990F48E9116A7 /* TodoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDocument.swift; sourceTree = "<group>"; };
 		8DC1CB56278147C5A3E797A2 /* Termina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Termina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF6F41ECA1FBD51ED4C4812 /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				B72A9AFFB2B2DA2432A972DC /* Brand.swift */,
 				F92BDDC2B3F3E43D125DF1E0 /* ObservationToken.swift */,
+				804D730A0CF76C5BA4EDA849 /* TerminalFont.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				4EA871BF477C47162B1550DD /* TabStripView.swift in Sources */,
 				05283AC90FE295D40DAC5AFA /* TerminaApp.swift in Sources */,
 				947B157369A32F0BEE89CED6 /* TerminaCommands.swift in Sources */,
+				D38CA7A608A42D5D5356A745 /* TerminalFont.swift in Sources */,
 				C8D5FF2C104C3B244917A774 /* TerminalHostView.swift in Sources */,
 				2E17FCCBA850559C2AF6161C /* TerminalSession.swift in Sources */,
 				A52226ED1CEDE5CFA8DDC381 /* TerminalTab.swift in Sources */,

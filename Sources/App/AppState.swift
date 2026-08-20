@@ -41,12 +41,26 @@ final class AppState {
         }
     }
 
+    /// Family name, or `TerminalFont.systemFamily` for the system monospace.
+    var fontFamily: String {
+        didSet {
+            UserDefaults.standard.set(fontFamily, forKey: "fontFamily")
+            applyAppearanceToAllSessions()
+        }
+    }
+
+    var terminalFont: NSFont {
+        TerminalFont.resolve(family: fontFamily, size: fontSize)
+    }
+
     @ObservationIgnored private let store = ProjectStore()
 
     private init() {
         activeThemeID = UserDefaults.standard.string(forKey: "activeThemeID") ?? "termina-dark"
         let storedSize = UserDefaults.standard.double(forKey: "fontSize")
         fontSize = storedSize > 0 ? storedSize : 13
+        fontFamily = UserDefaults.standard.string(forKey: "fontFamily")
+            ?? TerminalFont.defaultFamily()
 
         host = ExtensionHost(state: self)
         extensions.activateAll(host: host)
@@ -277,7 +291,7 @@ final class AppState {
         let session = TerminalSession(
             folderURL: folder,
             theme: activeTheme,
-            fontSize: fontSize
+            font: terminalFont
         )
         session.onTerminated = { [weak self] session in
             self?.removeSessionFromTree(session)
@@ -326,7 +340,7 @@ final class AppState {
 
     private func applyAppearanceToAllSessions() {
         let theme = activeTheme
-        let font = NSFont.monospacedSystemFont(ofSize: fontSize, weight: .regular)
+        let font = terminalFont
         for workspace in workspaces {
             for tab in workspace.tabs {
                 for session in tab.sessions {
