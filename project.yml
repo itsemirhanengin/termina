@@ -22,10 +22,11 @@ targets:
       base:
         PRODUCT_NAME: Termina
         PRODUCT_BUNDLE_IDENTIFIER: com.itsemirhanengin.termina
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
         SWIFT_VERSION: "5.0"
         MACOSX_DEPLOYMENT_TARGET: "15.0"
         GENERATE_INFOPLIST_FILE: YES
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
         INFOPLIST_KEY_NSHumanReadableCopyright: ""
@@ -35,3 +36,14 @@ targets:
         ENABLE_HARDENED_RUNTIME: NO
         DEAD_CODE_STRIPPING: YES
         SWIFT_STRICT_CONCURRENCY: minimal
+      configs:
+        # A development build is a separate app: its own bundle id so it can sit
+        # in the Dock beside the installed one, its own name, and the badged
+        # icon. macOS does not badge development builds on its own — swapping
+        # the icon asset per configuration is the supported way to do it.
+        Debug:
+          PRODUCT_NAME: Termina Dev
+          PRODUCT_BUNDLE_IDENTIFIER: com.itsemirhanengin.termina.dev
+          ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Dev
+        Release:
+          ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
